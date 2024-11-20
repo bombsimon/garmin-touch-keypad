@@ -151,6 +151,9 @@ module TouchKeypad {
                 Graphics.TEXT_JUSTIFY_CENTER
             );
 
+            dc.setPenWidth(width / 80);
+            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
+
             for (var row = 0; row < _buttons.size(); row++) {
                 for (var col = 0; col < _buttons[row].size(); col++) {
                     var label = _buttons[row][col];
@@ -163,13 +166,12 @@ module TouchKeypad {
                     var y =
                         _buttonYStart + row * (_buttonHeight + _buttonSpacing);
 
-                    dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
                     dc.drawRoundedRectangle(
                         x,
                         y,
                         _buttonWidth,
                         _buttonHeight,
-                        20
+                        width / 20
                     );
 
                     dc.drawText(
