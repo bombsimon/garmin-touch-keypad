@@ -16,12 +16,12 @@ import Toybox.WatchUi;
 //!   import Toybox.WatchUi;
 //!
 //!   import TouchKeypad;
-//!   
+//!
 //!   class myDelegate extends WatchUi.BehaviorDelegate {
 //!       function initialize() {
 //!           BehaviorDelegate.initialize();
 //!       }
-//!   
+//!
 //!       function onMenu() as Boolean {
 //!           var view = new NumpadView({
 //!               // Callback when pressing OK
@@ -34,12 +34,12 @@ import Toybox.WatchUi;
 //!               :separatorLimit => 1,
 //!           });
 //!           var delegate = new NumpadDelegate(view);
-//!   
+//!
 //!           WatchUi.pushView(view, delegate, WatchUi.SLIDE_UP);
-//!   
+//!
 //!           return true;
 //!       }
-//!   
+//!
 //!       function myCallback(input as String) as Void {
 //!           System.println("Got input: " + input);
 //!       }
@@ -68,6 +68,10 @@ module TouchKeypad {
         // separator button at all.
         private var _separator as String = ".";
         private var _separatorLimit as Number = 1;
+
+        // Vibration will make the device vibrate when touching the screen if a
+        // button is hit.
+        private var _vibrate as Boolean = true;
 
         // The size of the buttons, their spacing and starting position is all
         // calculated based on the device's width and height. These are just
@@ -115,6 +119,10 @@ module TouchKeypad {
 
             if (settings.hasKey(:separatorLimit)) {
                 _separatorLimit = settings.get(:separatorLimit) as Number;
+            }
+
+            if (settings.hasKey(:vibrate)) {
+                _vibrate = settings.get(:vibrate) as Boolean;
             }
         }
 
@@ -181,6 +189,10 @@ module TouchKeypad {
 
             if (button == null) {
                 return false;
+            }
+
+            if (Attention has :vibrate && _vibrate) {
+                Attention.vibrate([new Attention.VibeProfile(25, 50)]);
             }
 
             if (button.equals(OK)) {
