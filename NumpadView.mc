@@ -98,6 +98,7 @@ module TouchKeypad {
                     :input as String,
                     :separator as String,
                     :separatorLimit as Number,
+                    :vibrate as Boolean,
                 }
         ) {
             View.initialize();

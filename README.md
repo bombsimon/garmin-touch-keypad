@@ -50,9 +50,10 @@ class myDelegate extends WatchUi.BehaviorDelegate {
 
 ### Settings
 
-| Setting           | Type                              | Description                                            |
-| ----------------- | --------------------------------- | ------------------------------------------------------ |
-| `:callback`       | `Method(value as Float) as Void ` | The method to call when pressing OK                    |
-| `:input`          | `String`                          | Starting input value                                   |
-| `:separator`      | `String`                          | The separator to use on the keypad (default `.`)       |
-| `:separatorLimit` | `Number`                          | Max occurrances of the specified separator (default 1) |
+| Setting           | Type                              | Description                                              |
+| ----------------- | --------------------------------- | -------------------------------------------------------- |
+| `:callback`       | `Method(value as Float) as Void ` | The method to call when pressing OK (default `null`)     |
+| `:input`          | `String`                          | Starting input value (default `""`)                      |
+| `:separator`      | `String`                          | The separator to use on the keypad (default `.`)         |
+| `:separatorLimit` | `Number`                          | Max occurrances of the specified separator (default `1`) |
+| `:vibrate`        | `Boolean`                         | Vibrate on each key tap (default `true`)                 |
