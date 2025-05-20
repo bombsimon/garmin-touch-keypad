@@ -23,7 +23,7 @@ import Toybox.WatchUi;
 
 import TouchKeypad;
 
-class myDelegate extends WatchUi.BehaviorDelegate {
+class MyDelegate extends WatchUi.BehaviorDelegate {
     function initialize() {
         BehaviorDelegate.initialize();
     }
@@ -34,6 +34,7 @@ class myDelegate extends WatchUi.BehaviorDelegate {
             :input => "98.2",
             :separator => ".",
             :separatorLimit => 1,
+            :vibrate => true,
         });
         var delegate = new NumpadDelegate(view);
 
@@ -50,10 +51,10 @@ class myDelegate extends WatchUi.BehaviorDelegate {
 
 ### Settings
 
-| Setting           | Type                              | Description                                              |
-| ----------------- | --------------------------------- | -------------------------------------------------------- |
-| `:callback`       | `Method(value as Float) as Void ` | The method to call when pressing OK (default `null`)     |
-| `:input`          | `String`                          | Starting input value (default `""`)                      |
-| `:separator`      | `String`                          | The separator to use on the keypad (default `.`)         |
-| `:separatorLimit` | `Number`                          | Max occurrances of the specified separator (default `1`) |
-| `:vibrate`        | `Boolean`                         | Vibrate on each key tap (default `true`)                 |
+| Setting           | Type                             | Description                                              |
+| ----------------- | -------------------------------- | -------------------------------------------------------- |
+| `:callback`       | `Method(value as Float) as Void` | The method to call when pressing OK (default `null`)     |
+| `:input`          | `String`                         | Starting input value (default `""`)                      |
+| `:separator`      | `String`                         | The separator to use on the keypad (default `.`)         |
+| `:separatorLimit` | `Number`                         | Max occurrances of the specified separator (default `1`) |
+| `:vibrate`        | `Boolean`                        | Vibrate on each key tap (default `true`)                 |
